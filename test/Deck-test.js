@@ -18,4 +18,9 @@ describe('Deck', function() {
         const deck = new Deck();
         expect(deck.deck).to.be.an('array');
     });
+    it('should initialize with array', function() {
+        const deck = new Deck([1, 2, 3]);
+        expect(deck.deck).to.equal([1, 2, 3]);
+    });
+    
 });
