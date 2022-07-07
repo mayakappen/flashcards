@@ -24,19 +24,19 @@ describe('Round', function() {
         expect(card).to.equal(round.deck[0])
         expect(round.returnCurrentCard()).to.equal(round.deck[0]);
     });
-    it('should be able to take a turn', function() {
+    it.only('should be able to take a turn', function() {
         const card1 = new Card(1, 'What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls');
         const card2 = new Card(2, 'What is Maya\'s favorite animal?', ['panda', 'frog', 'cat'], 'panda');
         const card3 = new Card(3, 'What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip');
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
-        const turn = new Turn();
+        // const turn = new Turn();
         expect(round.deck).to.deep.equal([card1, card2, card3]);
-        expect(round.turnCount).to.equal(1);
+        expect(round.turnCount).to.equal(0);
         expect(round.takeTurn('Sioux Falls')).to.equal('correct!');
-        expect(round.turnCount).to.equal(2);
+        expect(round.turnCount).to.equal(1);
         expect(round.takeTurn('frog')).to.equal('incorrect!');
-        expect(round.turnCount).to.equal(3);
+        expect(round.turnCount).to.equal(2);
         expect(round.incorrectGuesses).to.deep.equal([2]);
         expect(round.returnCurrentCard()).to.equal(card3);
     })
