@@ -12,21 +12,21 @@ describe('Round', function() {
         const round = new Round(deck);
         expect(Round).to.be.a('function')
     })
-    it.skip('should be an instance of Round', function() {
+    it('should be an instance of Round', function() {
         const deck = new Deck()
         const round = new Round(deck);
         expect(round).to.be.an.instanceof(Round)
     })
-    it.skip('should have currentCard as first in Deck at Round start', function() {
-        const deck = new Deck();
+    it('should return currentCard as first in Deck at Round start', function() {
+        const card = new Card(3, 'What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip');
+        const deck = new Deck([card]);
         const round = new Round(deck);
-        expect(round.currentCard).to.be.an.instanceof('Card');
-        expect(round.currentCard).to.equal(deck.deck[0]);
-    })
+        expect(card).to.equal(round.deck[0])
+        expect(round.returnCurrentCard()).to.equal(round.deck[0]);
+    });
     it.skip('should return currentCard', function() {
         const deck = new Deck();
         const round = new Round(deck);
-        expect(round.returnCurrentCard()).to.equal(round.currentCard);
     })
     it.skip('should be able to take a turn', function() {
         const card1 = new Card(1, 'What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls');
