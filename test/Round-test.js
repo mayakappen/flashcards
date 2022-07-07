@@ -24,7 +24,7 @@ describe('Round', function() {
         expect(card).to.equal(round.deck[0])
         expect(round.returnCurrentCard()).to.equal(round.deck[0]);
     });
-    it.only('should be able to take a turn', function() {
+    it('should be able to take a turn', function() {
         const card1 = new Card(1, 'What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls');
         const card2 = new Card(2, 'What is Maya\'s favorite animal?', ['panda', 'frog', 'cat'], 'panda');
         const card3 = new Card(3, 'What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip');
@@ -40,7 +40,7 @@ describe('Round', function() {
         expect(round.incorrectGuesses).to.deep.equal([2]);
         expect(round.returnCurrentCard()).to.equal(card3);
     })
-    it.skip('should be able to end a game', function() {
+    it('should be able to end a game', function() {
         const card1 = new Card(1, 'What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls');
         const card2 = new Card(2, 'What is Maya\'s favorite animal?', ['panda', 'frog', 'cat'], 'panda');
         const card3 = new Card(3, 'What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip');
@@ -48,9 +48,11 @@ describe('Round', function() {
         const round = new Round(deck);
         round.takeTurn('San Francisco');
         round.takeTurn('panda');
+        console.log(round.incorrectGuesses);
+        console.log(round.turnCount)
         expect(round.calculatePercentCorrect()).to.equal(50);
         round.takeTurn('strawberry');
-        expect(round.calculatePercentCorrect()).to.equal(66.67);
-        expect(round.endRound()).to.equal("** Round over! ** You answered 66.67% of the questions correctly!");
+        expect(round.calculatePercentCorrect()).to.equal(67);
+        expect(round.endRound()).to.equal("** Round over! ** You answered 67% of the questions correctly!");
     })
 })
