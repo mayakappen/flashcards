@@ -23,9 +23,9 @@ describe('Deck', function() {
         const deck = new Deck(['one', 'two', 'three']);
         expect(deck.deck).to.deep.equal(['one', 'two', 'three']);
     });
-    it.skip('should know how many cards are in Deck', function() {
+    it('should know how many cards are in Deck', function() {
         const deck = new Deck([1, 2, 3, 4, 5, 6, 7])
-        expect(deck.length).to.equal(7);
+        expect(deck.deckLength).to.equal(7);
     });
 
 });
