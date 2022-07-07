@@ -8,29 +8,27 @@ const Round = require('../src/Round');
 
 describe('Round', function() {
     it('should be a function', function() {
-        const round = new Round();
-        expect(round).to.be.a('function')
+        const deck = new Deck()
+        const round = new Round(deck);
+        expect(Round).to.be.a('function')
     })
-    it('should be an instance of Round', function() {
-        const round = new Round();
+    it.skip('should be an instance of Round', function() {
+        const deck = new Deck()
+        const round = new Round(deck);
         expect(round).to.be.an.instanceof(Round)
     })
-    it('should take in responses', function() {
-        const round = new Round('pandas') 
-        expect(round.response).to.equal('pandas')
-    })
-    it('should have currentCard as first in Deck at Round start', function() {
+    it.skip('should have currentCard as first in Deck at Round start', function() {
         const deck = new Deck();
         const round = new Round(deck);
         expect(round.currentCard).to.be.an.instanceof('Card');
         expect(round.currentCard).to.equal(deck.deck[0]);
     })
-    it('should return currentCard', function() {
+    it.skip('should return currentCard', function() {
         const deck = new Deck();
         const round = new Round(deck);
         expect(round.returnCurrentCard()).to.equal(round.currentCard);
     })
-    it('should be able to take a turn', function() {
+    it.skip('should be able to take a turn', function() {
         const card1 = new Card(1, 'What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls');
         const card2 = new Card(2, 'What is Maya\'s favorite animal?', ['panda', 'frog', 'cat'], 'panda');
         const card3 = new Card(3, 'What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip');
@@ -44,8 +42,8 @@ describe('Round', function() {
         expect(round.turnCount).to.equal(3);
         expect(round.incorrectGuesses).to.deep.equal([2]);
         expect(round.returnCurrentCard()).to.equal(card3);
-})
-    it('should be able to end a game', function {
+    })
+    it.skip('should be able to end a game', function() {
         const card1 = new Card(1, 'What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls');
         const card2 = new Card(2, 'What is Maya\'s favorite animal?', ['panda', 'frog', 'cat'], 'panda');
         const card3 = new Card(3, 'What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip');
@@ -56,7 +54,6 @@ describe('Round', function() {
         expect(round.calculatePercentCorrect()).to.equal(50);
         round.takeTurn('strawberry');
         expect(round.calculatePercentCorrect()).to.equal(66.67);
-        expect(round.endRound()).to.equal(‘** Round over! ** You answered 66.67% of the questions correctly!’);
-
+        expect(round.endRound()).to.equal("** Round over! ** You answered 66.67% of the questions correctly!");
     })
 })
