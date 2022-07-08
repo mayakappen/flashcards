@@ -30,7 +30,6 @@ describe('Round', function() {
         const card3 = new Card(3, 'What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip');
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
-        // const turn = new Turn();
         expect(round.deck).to.deep.equal([card1, card2, card3]);
         expect(round.turnCount).to.equal(0);
         expect(round.takeTurn('Sioux Falls')).to.equal('correct!');
@@ -48,8 +47,6 @@ describe('Round', function() {
         const round = new Round(deck);
         round.takeTurn('San Francisco');
         round.takeTurn('panda');
-        console.log(round.incorrectGuesses);
-        console.log(round.turnCount)
         expect(round.calculatePercentCorrect()).to.equal(50);
         round.takeTurn('strawberry');
         expect(round.calculatePercentCorrect()).to.equal(67);

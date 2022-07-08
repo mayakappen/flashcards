@@ -18,11 +18,9 @@ class Round {
         let currentTurn = new Turn(playerGuess, this.currentCard);
         currentTurn.giveFeedback();
        if (!currentTurn.correct) {
-            console.log('i made it');
             this.incorrectGuesses.push(this.currentCard.id);
             }
         this.turnCount++
-        console.log("deck", this.deck);
         this.currentCard = this.deck[this.turnCount]
         return currentTurn.giveFeedback()
        }
