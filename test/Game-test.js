@@ -26,12 +26,14 @@ describe('Game', function() {
         const round1 = new Round(deck)
         const game = new Game()
         const round2 = new Round(deck)
-        game.start(prototypeData);
+        game.start();
         expect(game.currentRound).to.equal(1)
     })
     it('should be able to start a game', function() {
         const game = new Game()
         game.start(prototypeData)
         expect()
+
+        
     })
 })
