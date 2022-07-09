@@ -8,7 +8,6 @@ const util = require('./util');
 class Game {
   constructor() {
     this.currentRound = 0
-    
   }
 
   printMessage(deck, round) {
@@ -29,6 +28,9 @@ class Game {
     this.round = round
     this.printMessage(deck, round);
     this.printQuestion(round);
+    if (!this.round.currentCard) {
+      return round.endRound();
+    }
   }
 }
 
